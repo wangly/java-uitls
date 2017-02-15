@@ -1,0 +1,10 @@
+*/target
+target/*
+logs/
+projectFilesBackup/
+.idea/*
+*.iml
+*.class
+*.DS_Store
+doc/
+node_modules/
