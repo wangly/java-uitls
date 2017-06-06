@@ -1,4 +1,5 @@
 package com.lilian.utils;
+
 import com.lilian.exception.APIRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,14 @@ public class ExtractUtils {
             }
             return (R) obj;
         };
+
+        return list.stream().map(func).filter(item -> item != null).distinct().collect(Collectors.toList());
+    }
+
+    public static <T, R> List<R> extractField(List<T> list, Function<T, R> func) {
+        if (CollectionUtils.isEmpty(list)) {
+            return Collections.emptyList();
+        }
 
         return list.stream().map(func).filter(item -> item != null).distinct().collect(Collectors.toList());
     }
